@@ -11,14 +11,14 @@ export default function Table() {
     const [selectedTable, setSelectedTable] = useState('table1');
     
     useEffect(() =>{
-        axios.get('http://localhost:3001/getCameraImages2')
+        axios.get(process.env.REACT_APP_Table1)
         .then(camera_Image2 => setTablea2Data(camera_Image2.data))
         .catch(err => console.log(err))
     }, [])
 
 
     useEffect(() =>{
-        axios.get('http://localhost:3001/getParkingSpace')
+        axios.get(process.env.REACT_APP_Table2)
         .then(parking_space => setTablea3Data(parking_space.data))
         .catch(err => console.log(err))
     }, [])

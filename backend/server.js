@@ -1,6 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const mongoose = require('mongoose')
+require('dotenv').config();
 
 
 const app = express()
@@ -10,7 +11,8 @@ app.use(express.json())
 
 
 const dbOptions = {useNewUrlParser: true, useUnifiedTopology: true}
-const mongoURI = "mongodb+srv://jeremysoh222:kk6dGaMao5h7CoLW@cluster0.ke2biwp.mongodb.net/SmartParking"
+const mongoURI = process.env.REACT_APP_DB_URL
+
 
 mongoose.connect(mongoURI, dbOptions)
 .then(() => console.log('DB Connected!'))

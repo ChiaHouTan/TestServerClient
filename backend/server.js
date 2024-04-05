@@ -23,7 +23,7 @@ const Table2Model = require('./Table2Schemas')
 const Table3Model = require('./Table3Schemas')
 
 app.get('/getCameraImages2', (req, res)=> {
-    Table2Model.find()
+    Table2Model.find().sort({timestamp: -1}).limit(20)
     .then(camera_Image2=> res.json(camera_Image2))
     .catch(err => res.json(err))
 })

@@ -34,7 +34,7 @@ app.get('/getParkingSpace', (req, res)=> {
     .catch(err => res.json(err))
 })
 
-const port = 3001
+const port = process.env.PORT || 3001;
 app.listen(port, () =>{
     console.log(`Server is running on port ${port}`)
 })

@@ -3,7 +3,6 @@ const mongoose = require("mongoose")
 const table2Schema = new mongoose.Schema({
     _id: String,
     timestamp: Date,
-    motion_detected: Boolean,
     image_data: Buffer, //since mongo no data types of Blob, so using Buffer instead
 },
 {

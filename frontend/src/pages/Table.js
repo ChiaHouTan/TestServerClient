@@ -53,9 +53,6 @@ export default function Table() {
                                 Time
                                 </th>
                                 <th>
-                                    Motion Detect
-                                </th>
-                                <th>
                                     Image
                                 </th>
                             </tr>
@@ -66,7 +63,6 @@ export default function Table() {
                                     return <tr key={t2._id}>
                                         <td>{t2._id}</td>
                                         <td>{t2.timestamp}</td>
-                                        <td>test</td>
                                         <td>
                                         {t2.image_data ? (
                                                 <img

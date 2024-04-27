@@ -1,56 +1,56 @@
 import { useEffect, useState } from "react";
 import axios from 'axios'
-import {Buffer} from 'buffer';
+import { Buffer } from 'buffer';
 import Navbar from './Navbar';
-Buffer.from('anything','base64');
+Buffer.from('anything', 'base64');
 
 
 export default function Table() {
     const [camera_Image2, setTablea2Data] = useState([]);
     const [parking_space, setTablea3Data] = useState([]);
     const [selectedTable, setSelectedTable] = useState('table1');
-    
-    useEffect(() =>{
+
+    useEffect(() => {
         axios.get(process.env.REACT_APP_Table1)
-        .then(camera_Image2 => setTablea2Data(camera_Image2.data))
-        .catch(err => console.log(err))
+            .then(camera_Image2 => setTablea2Data(camera_Image2.data))
+            .catch(err => console.log(err))
     }, [])
 
 
-    useEffect(() =>{
+    useEffect(() => {
         axios.get(process.env.REACT_APP_Table2)
-        .then(parking_space => setTablea3Data(parking_space.data))
-        .catch(err => console.log(err))
+            .then(parking_space => setTablea3Data(parking_space.data))
+            .catch(err => console.log(err))
     }, [])
 
 
-      
-        const showTable = (event) => {
-          setSelectedTable(event.target.value);
-        };
+
+    const showTable = (event) => {
+        setSelectedTable(event.target.value);
+    };
 
 
     return <>
-    <Navbar />
+        <Navbar />
         <div className="table-container">
             <label htmlFor="tableSelector">Select a Table:</label>
-        <select id="tableSelector" value={selectedTable} onChange={showTable}>
-            <option value="table1">Table 1</option>
-            <option value="table2">Table 2</option>
-        </select>
-        
-        
-                <div id="table1" style={{ display: selectedTable === 'table1' ? 'block' : 'none' }}>
+            <select id="tableSelector" value={selectedTable} onChange={showTable}>
+                <option value="table1">Table 1</option>
+                <option value="table2">Table 2</option>
+            </select>
+
+
+            <div id="table1" style={{ display: selectedTable === 'table1' ? 'block' : 'none' }}>
                 <h1>Car Park Detect</h1>
-                    <div class="table-wrapper">
-                        <table className="tableCenter">
+                <div class="table-wrapper">
+                    <table className="tableCenter">
                         <thead>
                             <tr>
                                 <th>
-                                ID
+                                    ID
                                 </th>
                                 <th>
-                                Time
+                                    Time
                                 </th>
                                 <th>
                                     Image
@@ -64,12 +64,12 @@ export default function Table() {
                                         <td>{t2._id}</td>
                                         <td>{t2.timestamp}</td>
                                         <td>
-                                        {t2.image_data ? (
+                                            {t2.image_data ? (
                                                 <img
-                                                src={`data:image/jpeg;base64,${Buffer.from(t2.image_data).toString('base64')}`}
-                                                alt="Camera"
-                                                width="100"
-                                                height="100"
+                                                    src={`data:image/jpeg;base64,${Buffer.from(t2.image_data).toString('base64')}`}
+                                                    alt="Camera"
+                                                    width="100"
+                                                    height="100"
                                                 />
                                             ) : (
                                                 <span>No image available</span>
@@ -80,13 +80,13 @@ export default function Table() {
                             }
                         </tbody>
                     </table>
-                    </div>
-                    
                 </div>
-                <div id="table2" style={{ display: selectedTable === 'table2' ? 'block' : 'none' }}>
-                    <h1>Car Park Detail</h1>
-                    <div class="table-wrapper">
-                        <table className="tableCenter">
+
+            </div>
+            <div id="table2" style={{ display: selectedTable === 'table2' ? 'block' : 'none' }}>
+                <h1>Car Park Detail</h1>
+                <div class="table-wrapper">
+                    <table className="tableCenter">
                         <thead>
                             <tr>
                                 <th>
@@ -128,10 +128,10 @@ export default function Table() {
                             }
                         </tbody>
                     </table>
-                    </div>
-                    
                 </div>
-                </div>
+
+            </div>
+        </div>
     </>
-    
+
 }

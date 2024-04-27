@@ -10,9 +10,9 @@ const table3Schema = new mongoose.Schema({
     gps_longitude: Number,
     space_name: String,
 },
-{
-    collection: "parking_space",
-}
+    {
+        collection: "parking_space",
+    }
 );
 
 const Table3Model = mongoose.model("parking_space", table3Schema)

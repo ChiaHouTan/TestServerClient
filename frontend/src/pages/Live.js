@@ -9,7 +9,7 @@ export default function Live() {
     <div className='livePage'>
         <Navbar />
         <div className='centeredPlayer'>
-            <YouTubePlayer videoId={normalVideoId} />
+        <YouTubePlayer videoId={normalVideoId}/>
         </div>
     </div>
     </>

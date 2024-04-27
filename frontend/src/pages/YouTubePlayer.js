@@ -13,8 +13,8 @@ const YouTubePlayer = ({ videoId }) => {
     let player;
     window.onYouTubeIframeAPIReady = () => {
       player = new window.YT.Player('player', {
-        height: '720',
-        width: '1280',
+        height: '100%',
+        width: '100%',
         videoId: videoId,
         playerVars: {
           // autoplay: 1,
@@ -35,7 +35,7 @@ const YouTubePlayer = ({ videoId }) => {
     };
   }, [videoId]);
 
-  return <div id="player"></div>;
+  return <div id="player" className="centeredPlayer"></div>;
 };
 
 export default YouTubePlayer;

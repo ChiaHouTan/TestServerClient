@@ -11,7 +11,12 @@ export default function Home() {
     <div className='mixPage'>
         <Navbar />
        <Map />
-                <YouTubePlayer videoId={normalVideoId} />
+       <div className='livePage'>
+        <div className='centeredPlayer'>
+        <YouTubePlayer videoId={normalVideoId}/>
+        </div>
+       </div>
+       
         
     </div>
     </>

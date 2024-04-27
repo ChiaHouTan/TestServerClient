@@ -11,12 +11,14 @@
 }
 
 .tableCenter {
+    width: 100%;
     width: 1200px;
     margin-left: auto;
     margin-right: auto;
   }
 
   table {
+    width: 100%;
     margin-bottom: 100px;
     border-collapse: collapse;
     border: 1px solid #000;
@@ -47,6 +49,14 @@
 
   .table-wrapper {
     max-height: 100vh; /* Set a max height for the table */
+    overflow-x: auto; /* Enable horizontal scrolling if table overflows */
     overflow-y: auto; /* Enable vertical scrolling */
     padding-bottom: 10%;
   }
+
+  /* Responsive styles */
+@media screen and (max-width: 1200px) {
+  .tableCenter {
+    width: 90%; /* Adjust width to fit smaller screens */
+  }
+}
